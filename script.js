@@ -4,23 +4,23 @@ const parent = document.querySelector(".parent");
 
 let accordian = [
     {
-        heading : "Goup-1",
+        heading : "Group-1",
         para : "Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc."
     },
     {
-        heading : "Goup-1",
+        heading : "Group-1",
         para : "Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc."
     },
     {
-        heading : "Goup-1",
+        heading : "Group-1",
         para : "Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc."
     },
     {
-        heading : "Goup-1",
+        heading : "Group-1",
         para : "Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc."
     },
     {
-        heading : "Goup-1",
+        heading : "Group-1",
         para : "Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc."
     },
 ]
