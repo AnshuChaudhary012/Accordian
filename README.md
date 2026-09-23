@@ -1,8 +1,8 @@
 # Project Name
 
 ## links
-1. live link:- 
-2. repo link:-
+1. live link:- https://accordian-drab.vercel.app/
+2. repo link:- https://github.com/AnshuChaudhary012/Accordian
 
 ## Description
 
