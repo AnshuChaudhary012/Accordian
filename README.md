@@ -1,4 +1,4 @@
-# Project Name
+# Accordian
 
 ## links
 1. live link:- https://accordian-drab.vercel.app/
