@@ -1,34 +1,32 @@
-
 const parent = document.querySelector(".parent");
 
+      let accordian = [
+        {
+          heading: "Group-1",
+          para: "Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc.",
+        },
+        {
+          heading: "Group-1",
+          para: "Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc.",
+        },
+        {
+          heading: "Group-1",
+          para: "Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc.",
+        },
+        {
+          heading: "Group-1",
+          para: "Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc.",
+        },
+        {
+          heading: "Group-1",
+          para: "Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc.",
+        },
+      ];
 
-let accordian = [
-    {
-        heading : "Group-1",
-        para : "Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc."
-    },
-    {
-        heading : "Group-1",
-        para : "Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc."
-    },
-    {
-        heading : "Group-1",
-        para : "Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc."
-    },
-    {
-        heading : "Group-1",
-        para : "Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc."
-    },
-    {
-        heading : "Group-1",
-        para : "Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc. Nibh dictum nulla morbi ornare. Varius sit at eget nunc."
-    },
-]
+      accordian.map((inside) => {
+        const parent = document.querySelector(".parent");
 
-accordian.map((inside) => {
-    const parent = document.querySelector(".parent");
-
-    parent.innerHTML += `
+        parent.innerHTML += `
         <div
             class="accordion max-w-124.5 w-full border border-black/10 rounded-[5px] py-4.5 pr-2.75 pl-4.75"
         >
@@ -70,41 +68,47 @@ accordian.map((inside) => {
             </div>
         </div>
     `;
-});
+      });
 
-// now the code here
+      const accordions = document.querySelectorAll(".accordion");
 
+      function closeAccordion(accordion) {
+        const content = accordion.querySelector(".content");
+        const arrow = accordion.querySelector(".arrow");
+        const header = accordion.querySelector(".accordion-header");
+        content.style.maxHeight = null;
+        arrow.classList.remove("rotate-180");
+        accordion.classList.remove("border-[#128DFF]");
+        accordion.classList.add("border-black/10");
+        header.classList.add("text-[#808080]");
+      }
 
+      function openAccordion(accordion) {
+        const content = accordion.querySelector(".content");
+        const arrow = accordion.querySelector(".arrow");
+        const header = accordion.querySelector(".accordion-header");
+        content.style.maxHeight = content.scrollHeight + "px";
+        arrow.classList.add("rotate-180");
+        accordion.classList.remove("border-black/10");
+        accordion.classList.add("border-[#128DFF]");
+        header.classList.remove("text-[#808080]");
+      }
 
-const accordions = document.querySelectorAll(".accordion");
+      accordions.forEach((accordion) => {
+        const header = accordion.querySelector(".accordion-header");
+        const content = accordion.querySelector(".content");
 
-accordions.forEach((accordion) => {
+        header.addEventListener("click", () => {
+          accordions.forEach((otherAccordion) => {
+            if (otherAccordion !== accordion) {
+              closeAccordion(otherAccordion);
+            }
+          });
 
-    const header = accordion.querySelector(".accordion-header");
-    const content = accordion.querySelector(".content");
-    const arrow = accordion.querySelector(".arrow");
-
-    header.addEventListener("click", () => {
-
-        // Open / close current accordion
-        if (content.style.maxHeight) {
-
-            // CLOSE
-            content.style.maxHeight = null;
-            arrow.classList.remove("rotate-180");
-            accordion.classList.remove( "border-[#128DFF]")
-            accordion.classList.add( "border-black/10")
-            header.classList.add("text-[#808080]")
-
-        } else {
-
-            // OPEN
-            content.style.maxHeight = content.scrollHeight + "px";
-            arrow.classList.add("rotate-180");
-            accordion.classList.remove( "border-black/10")
-            accordion.classList.add( "border-[#128DFF]")
-            header.classList.remove("text-[#808080]")
-        }
-    });
-
-});
+          if (content.style.maxHeight) {
+            closeAccordion(accordion);
+          } else {
+            openAccordion(accordion);
+          }
+        });
+      });
